@@ -1,5 +1,5 @@
 import request from "../../api"
-import { CHANNEL_DETAILS_FAIL, CHANNEL_DETAILS_REQ, CHANNEL_DETAILS_SUCCESS, GET_SUBSCRIPTION_STATUS, SUBSCRIPTION_CHANNEL_FAIL, SUBSCRIPTION_CHANNEL_REQ, SUBSCRIPTION_CHANNEL_SUCCESS, } from "../action-types"
+import { CHANNEL_DETAILS_FAIL, CHANNEL_DETAILS_REQ, CHANNEL_DETAILS_SUCCESS } from "../action-types"
 
 export const getChannelDetailsId = (id)=>async dispatch=>{
      
@@ -35,68 +35,68 @@ export const getChannelDetailsId = (id)=>async dispatch=>{
 }
 
 
-export const getSubscriptionStatus = (id)=>async (dispatch,getState)=>{
+// export const getSubscriptionStatus = (id)=>async (dispatch,getState)=>{
      
-    try {
+//     try {
         
-        const response = await request("/subscriptions",{
+//         const response = await request("/subscriptions",{
 
-            params:{
-                part: "snippet",
-                forChannelId: id,
-                mine: true
-            },
-            headers:{
-                Authorization: `Bearer ${getState().auth.accessToken}`
-            }
-        }) 
+//             params:{
+//                 part: "snippet",
+//                 forChannelId: id,
+//                 mine: true
+//             },
+//             headers:{
+//                 Authorization: `Bearer ${getState().auth.accessToken}`
+//             }
+//         }) 
         
         
-        dispatch({
-            type: GET_SUBSCRIPTION_STATUS,
-            payload: response.data.items.length!==0
+//         dispatch({
+//             type: GET_SUBSCRIPTION_STATUS,
+//             payload: response.data.items.length!==0
             
-        })
+//         })
 
-    } catch (error) {
-       console.log(error.message);
-    }
-}
+//     } catch (error) {
+//        console.log(error.message);
+//     }
+// }
 
-export const getSubscriptionChannels = (id)=>async (dispatch,getState)=>{
+// export const getSubscriptionChannels = (id)=>async (dispatch,getState)=>{
      
-    try {
+//     try {
 
-        dispatch({
-            type: SUBSCRIPTION_CHANNEL_REQ
-        })
+//         dispatch({
+//             type: SUBSCRIPTION_CHANNEL_REQ
+//         })
         
-        const response = await request("/subscriptions",{
+//         const response = await request("/subscriptions",{
 
-            params:{
-                part: "snippet,contentDetails",
-                maxResults: 50,
-                mine: true
-            },
-            headers:{
-                Authorization: `Bearer ${getState().auth.accessToken}`
-            }
-        }) 
+//             params:{
+//                 part: "snippet,contentDetails",
+//                 maxResults: 50,
+//                 mine: true
+//             },
+//             headers:{
+//                 Authorization: `Bearer ${getState().auth.accessToken}`
+//             }
+//         }) 
         
         
-        dispatch({
-            type: SUBSCRIPTION_CHANNEL_SUCCESS,
-            payload: response.data.items
+//         dispatch({
+//             type: SUBSCRIPTION_CHANNEL_SUCCESS,
+//             payload: response.data.items
             
-        })
+//         })
 
-    } catch (error) {
+//     } catch (error) {
 
-        dispatch({
-            type: SUBSCRIPTION_CHANNEL_FAIL,
-            payload: error.message
+//         dispatch({
+//             type: SUBSCRIPTION_CHANNEL_FAIL,
+//             payload: error.message
             
-        })
-    }
-}
+//         })
+//     }
+// }
 

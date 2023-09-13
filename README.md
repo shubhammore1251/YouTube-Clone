@@ -29,11 +29,10 @@ To run this project, you will need to add the following environment variables to
 ## Features
 
 - Get Popular Videos on HomeScreen
-- Get your Liked Videos from YouTube Server
 - Mobile Responsive
 - Search videos you want to watch
-- Get your Subscribed channel list in Subscription Window
 - Get videos by categories
+- View Channel Videos
 
 ## Tech Stack
 

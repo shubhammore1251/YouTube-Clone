@@ -1,4 +1,4 @@
-import { CHANNEL_DETAILS_FAIL, CHANNEL_VIDEO_REQ, CHANNEL_VIDEO_SUCCESS, GET_LIKED_VIDEOS_FAIL, GET_LIKED_VIDEOS_REQ, GET_LIKED_VIDEOS_SUCCESS, HOME_VIDEOS_FAIL, HOME_VIDEOS_REQ, HOME_VIDEOS_SUCC, SEARCH_VIDEO_FAIL, SEARCH_VIDEO_REQ, SEARCH_VIDEO_SUCCESS, SELECTED_VIDEO_FAIL, SELECTED_VIDEO_REQ, SELECTED_VIDEO_SUCCESS } from "../action-types"
+import { CHANNEL_DETAILS_FAIL, CHANNEL_VIDEO_REQ, CHANNEL_VIDEO_SUCCESS, HOME_VIDEOS_FAIL, HOME_VIDEOS_REQ, HOME_VIDEOS_SUCC, SEARCH_VIDEO_FAIL, SEARCH_VIDEO_REQ, SEARCH_VIDEO_SUCCESS, SELECTED_VIDEO_FAIL, SELECTED_VIDEO_REQ, SELECTED_VIDEO_SUCCESS } from "../action-types"
 
 const initialState = {
       
@@ -157,41 +157,41 @@ export const ChannelPageVideoReducer = (
 
 }
 
-export const LikedVideoReducer = (
+// export const LikedVideoReducer = (
     
-    vidState = {
-        loading: true,
-        videos:[]
-    },action )=>{
+//     vidState = {
+//         loading: true,
+//         videos:[]
+//     },action )=>{
      
-    const {payload,type} = action
+//     const {payload,type} = action
 
-    switch (type) {
-        case GET_LIKED_VIDEOS_REQ:
+//     switch (type) {
+//         case GET_LIKED_VIDEOS_REQ:
              
-            return{
-                ...vidState,
-                loading: true
-            }
+//             return{
+//                 ...vidState,
+//                 loading: true
+//             }
 
-        case GET_LIKED_VIDEOS_SUCCESS:
+//         case GET_LIKED_VIDEOS_SUCCESS:
              
-            return{
-                ...vidState,
-                videos: payload,
-                loading: false
-            }
+//             return{
+//                 ...vidState,
+//                 videos: payload,
+//                 loading: false
+//             }
 
-        case GET_LIKED_VIDEOS_FAIL:
+//         case GET_LIKED_VIDEOS_FAIL:
              
-            return{
-                ...vidState,
-                loading: false,
-                error:payload
-            }
+//             return{
+//                 ...vidState,
+//                 loading: false,
+//                 error:payload
+//             }
     
-        default:
-            return vidState
-    }
+//         default:
+//             return vidState
+//     }
 
-}
+// }

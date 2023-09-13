@@ -1,5 +1,5 @@
 import request from "../../api"
-import {CHANNEL_VIDEO_FAIL, CHANNEL_VIDEO_REQ, CHANNEL_VIDEO_SUCCESS, GET_LIKED_VIDEOS_FAIL, GET_LIKED_VIDEOS_REQ, GET_LIKED_VIDEOS_SUCCESS, HOME_VIDEOS_FAIL, HOME_VIDEOS_REQ, HOME_VIDEOS_SUCC, SEARCH_VIDEO_FAIL, SEARCH_VIDEO_REQ, SEARCH_VIDEO_SUCCESS, SELECTED_VIDEO_FAIL, SELECTED_VIDEO_REQ, SELECTED_VIDEO_SUCCESS } from "../action-types"
+import {CHANNEL_VIDEO_FAIL, CHANNEL_VIDEO_REQ, CHANNEL_VIDEO_SUCCESS, HOME_VIDEOS_FAIL, HOME_VIDEOS_REQ, HOME_VIDEOS_SUCC, SEARCH_VIDEO_FAIL, SEARCH_VIDEO_REQ, SEARCH_VIDEO_SUCCESS, SELECTED_VIDEO_FAIL, SELECTED_VIDEO_REQ, SELECTED_VIDEO_SUCCESS } from "../action-types"
 
 export const getPopularVideos = () => async (dispatch, getState) => {
 
@@ -182,39 +182,39 @@ export const getVideobyChannel = (id) => async (dispatch) => {
     }
 }
 
-export const getLikedVideosofUser = () => async (dispatch,getState) => {
+// export const getLikedVideosofUser = () => async (dispatch,getState) => {
 
-    try {
+//     try {
 
-        dispatch({
-            type: GET_LIKED_VIDEOS_REQ,
-        })
+//         dispatch({
+//             type: GET_LIKED_VIDEOS_REQ,
+//         })
         
 
-        const response = await request("/videos",{
+//         const response = await request("/videos",{
 
-            params:{
-                part: "snippet,contentDetails,statistics",
-                myRating: "like",
-                maxResults: 100
-            },
-            headers:{
-                Authorization: `Bearer ${getState().auth.accessToken}`
-            }
-        }) 
+//             params:{
+//                 part: "snippet,contentDetails,statistics",
+//                 myRating: "like",
+//                 maxResults: 100
+//             },
+//             headers:{
+//                 Authorization: `Bearer ${getState().auth?.accessToken}`
+//             }
+//         }) 
         
 
 
-        dispatch({
-            type: GET_LIKED_VIDEOS_SUCCESS,
-            payload: response.data.items
-        })
+//         dispatch({
+//             type: GET_LIKED_VIDEOS_SUCCESS,
+//             payload: response.data.items
+//         })
 
-    } catch (error) {
+//     } catch (error) {
 
-        dispatch({
-            type: GET_LIKED_VIDEOS_FAIL,
-            payload: error.message
-        })
-    }
-}
+//         dispatch({
+//             type: GET_LIKED_VIDEOS_FAIL,
+//             payload: error.message
+//         })
+//     }
+// }

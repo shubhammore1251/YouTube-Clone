@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import numeral from "numeral";
 import { MdThumbUp, MdThumbDown } from "react-icons/md";
-import { AiFillBell } from "react-icons/ai";
+// import { AiFillBell } from "react-icons/ai";
 import ShowMoreText from "react-show-more-text";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getChannelDetailsId,
-  getSubscriptionStatus,
+  // getSubscriptionStatus,
 } from "../redux/actions/channel.actions";
 import HelmetCustom from "./HelmetCustom";
+import { Link } from "react-router-dom";
 
 const VideoMetaData = ({
   video: { snippet, statistics },
@@ -24,15 +25,14 @@ const VideoMetaData = ({
   //Requesting the ChannelDetails and Subscription status of Logined user at every render
   useEffect(() => {
     dispatch(getChannelDetailsId(channelId));
-    if (accessToken) {
-      console.log("getting subscription status")
-      dispatch(getSubscriptionStatus(channelId));
-    }
+    // if (accessToken) {
+    //   dispatch(getSubscriptionStatus(channelId));
+    // }
   }, [dispatch, channelId, accessToken]);
 
   const { channel } = useSelector((state) => state.channelDetail);
 
-  const subsStatus = useSelector((state) => state.channelDetail.subsStatus);
+  // const subsStatus = useSelector((state) => state.channelDetail.subsStatus);
 
   //Getting the Date Month and year from  "publishedAt" to Display it as Youtube
   const date = new Date(publishedAt); // 2022-01-01
@@ -67,25 +67,27 @@ const VideoMetaData = ({
       </div>
 
       <div className="video-MetaData-channel d-flex justify-content-between align-items-center my-2 py-3">
-        <div className="d-flex channel-data">
-          <img
-            src={channel?.video?.snippet?.thumbnails?.default?.url}
-            alt="user-channel"
-            className="rounded-circle me-3"
-          />
+        <Link to={`/channel/${channelId}`} className="text-decoration-none text-white">
+          <div className="d-flex channel-data">
+            <img
+              src={channel?.video?.snippet?.thumbnails?.default?.url}
+              alt="user-channel"
+              className="rounded-circle me-3"
+            />
 
-          <div className="d-flex flex-column">
-            <span>{channelTitle}</span>
-            <span>
-              {numeral(channel?.video?.statistics?.subscriberCount)
-                .format("0.a")
-                .toUpperCase()}{" "}
-              subscribers
-            </span>
+            <div className="d-flex flex-column">
+              <span>{channelTitle}</span>
+              <span>
+                {numeral(channel?.video?.statistics?.subscriberCount)
+                  .format("0.a")
+                  .toUpperCase()}{" "}
+                subscribers
+              </span>
+            </div>
           </div>
-        </div>
+        </Link>
 
-        {subsStatus ? (
+        {/* {subsStatus ? (
           <div>
             <button
               className="btn border-0 p-2 m-2"
@@ -100,7 +102,9 @@ const VideoMetaData = ({
           </div>
         ) : (
           <button disabled={accessToken===null} className="btn border-0 p-2 m-2">Subscribe</button>
-        )}
+        )} */}
+
+        <button disabled={accessToken===null} className="btn border-0 p-2 m-2">Subscribe</button>
       </div>
 
       <div className="video-MetaData-description">

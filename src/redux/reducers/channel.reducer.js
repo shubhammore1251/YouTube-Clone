@@ -1,4 +1,4 @@
-import { CHANNEL_DETAILS_FAIL, CHANNEL_DETAILS_REQ, CHANNEL_DETAILS_SUCCESS, GET_SUBSCRIPTION_STATUS, SUBSCRIPTION_CHANNEL_FAIL, SUBSCRIPTION_CHANNEL_REQ, SUBSCRIPTION_CHANNEL_SUCCESS } from "../action-types"
+import { CHANNEL_DETAILS_FAIL, CHANNEL_DETAILS_REQ, CHANNEL_DETAILS_SUCCESS, GET_SUBSCRIPTION_STATUS } from "../action-types"
 
 
 export const ChannelDetailReducer = (
@@ -51,44 +51,44 @@ export const ChannelDetailReducer = (
 }
 
 
-export const SubscriptionChannelReducer = (
+// export const SubscriptionChannelReducer = (
     
-    channelState = {
-        loading: true,
-        channel:[],
-        subsStatus : false
-    },action )=>{
+//     channelState = {
+//         loading: true,
+//         channel:[],
+//         subsStatus : false
+//     },action )=>{
      
-    const {payload,type} = action
+//     const {payload,type} = action
 
-    switch (type) {
-        case SUBSCRIPTION_CHANNEL_REQ:
+//     switch (type) {
+//         case SUBSCRIPTION_CHANNEL_REQ:
              
-            return{
-                ...channelState,
-                loading: true
-            }
+//             return{
+//                 ...channelState,
+//                 loading: true
+//             }
 
-        case SUBSCRIPTION_CHANNEL_SUCCESS:
+//         case SUBSCRIPTION_CHANNEL_SUCCESS:
              
-            return{
-                ...channelState,
-                channel: payload,
-                loading: false
-            }
+//             return{
+//                 ...channelState,
+//                 channel: payload,
+//                 loading: false
+//             }
 
-        case SUBSCRIPTION_CHANNEL_FAIL:
+//         case SUBSCRIPTION_CHANNEL_FAIL:
              
-            return{
-                ...channelState,
-                channel: null,
-                loading: false,
-                error:payload
-            }
+//             return{
+//                 ...channelState,
+//                 channel: null,
+//                 loading: false,
+//                 error:payload
+//             }
 
     
-        default:
-            return channelState
-    }
+//         default:
+//             return channelState
+//     }
 
-}
+// }

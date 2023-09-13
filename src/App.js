@@ -8,9 +8,9 @@ import { Routes, Route } from "react-router-dom";
 import NotFound from './components/NotFound';
 import WatchScreen from './Screens/WatchScreen';
 import SearchScreen from './Screens/SearchScreen';
-import SubsciptionScreen from './Screens/SubsciptionScreen';
 import ChannelScreen from './Screens/ChannelScreen';
-import LikedVideosScreen from './Screens/LikedVideosScreen';
+// import SubsciptionScreen from './Screens/SubsciptionScreen';
+// import LikedVideosScreen from './Screens/LikedVideosScreen';
 
 const Layout = ({ children }) => {
 
@@ -68,13 +68,13 @@ function App() {
           }
         />
 
-        <Route exact path="/feed/subscriptions"
+        {/* <Route exact path="/feed/subscriptions"
           element={
             <Layout>
               <SubsciptionScreen />
             </Layout>
           }
-        />
+        /> */}
 
         <Route exact path="/channel/:channelId"
           element={
@@ -84,13 +84,13 @@ function App() {
           }
         />
 
-        <Route exact path="/yourlikedvideos"
+        {/* <Route exact path="/yourlikedvideos"
           element={
             <Layout>
               <LikedVideosScreen/>
             </Layout>
           }
-        />
+        /> */}
 
         <Route path="*" element={<NotFound />} />
 

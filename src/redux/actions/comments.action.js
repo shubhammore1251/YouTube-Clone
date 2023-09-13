@@ -1,5 +1,5 @@
 import request from "../../api";
-import { COMMENT_LIST_FAIL, COMMENT_LIST_REQ, COMMENT_LIST_SUCCESS, CREATE_COMMENT_FAIL, CREATE_COMMENT_SUCCESS } from "../action-types";
+import { COMMENT_LIST_FAIL, COMMENT_LIST_REQ, COMMENT_LIST_SUCCESS } from "../action-types";
 
 export const getCommentsOfVideoById = (id)=>async (dispatch)=>{
      
@@ -33,48 +33,48 @@ export const getCommentsOfVideoById = (id)=>async (dispatch)=>{
     }
 }
 
-export const addComments = (id,text)=>async (dispatch,getState)=>{
+// export const addComments = (id,text)=>async (dispatch,getState)=>{
      
-    try {
+//     try {
         
-        const obj = {
-            snippet: {
-               videoId:id,
-               topLevelComment: {
-                   snippet:{
-                    textOriginal:text
-                   }
-               }
-            }
-        }
+//         const obj = {
+//             snippet: {
+//                videoId:id,
+//                topLevelComment: {
+//                    snippet:{
+//                     textOriginal:text
+//                    }
+//                }
+//             }
+//         }
 
 
-        await request.post("/commentThreads",obj,{
+//         await request.post("/commentThreads",obj,{
 
-            params:{
-                part: "snippet",
-            },
-            headers:{
-                Authorization: `Bearer ${getState().auth.accessToken}`
-            }
-        }) 
+//             params:{
+//                 part: "snippet",
+//             },
+//             headers:{
+//                 Authorization: `Bearer ${getState().auth.accessToken}`
+//             }
+//         }) 
         
         
-        dispatch({
-            type: CREATE_COMMENT_SUCCESS,
-        })
+//         dispatch({
+//             type: CREATE_COMMENT_SUCCESS,
+//         })
         
         
-        setTimeout(() => dispatch (getCommentsOfVideoById(id)), 3000);
+//         setTimeout(() => dispatch (getCommentsOfVideoById(id)), 3000);
        
 
 
-    } catch (error) {
+//     } catch (error) {
         
-        console.log(error.message);
-        dispatch({
-            type: CREATE_COMMENT_FAIL,
-            payload: error.message
-        })
-    }
-}
+//         console.log(error.message);
+//         dispatch({
+//             type: CREATE_COMMENT_FAIL,
+//             payload: error.message
+//         })
+//     }
+// }
