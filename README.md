@@ -10,13 +10,13 @@ Hosted App Link: <https://yt-cl-2022.web.app>
 
 **NOTE:**
 
-- If your are Signing into the app and if its for the first time through your G-mail Id you might get an warning from google like this shown below:
+- If your are Signing into the app and if its for the first time using your G-mail Id you might get an warning from google like this shown below:
 
-- ![Logo](https://i.stack.imgur.com/xROQ1.png)
+![Logo](https://i.stack.imgur.com/xROQ1.png)
 
-- But this is just a warning because the app might not be registered with google, as it is just a demonstration Project showing my project
+- But this is just a warning because the app might not have been registered with google, and it is just a demonstration Project showing my work.
 
-- All the API is provided by YouTube and Authentication is from Firebase, so I do not and will not read and also cannot access your data so please ignore this warning, Thank You.
+- All the API is provided by YouTube and Authentication is from Firebase, so I do not and will not read and also cannot access your personal data so please ignore this warning, Thank You.
 
 ## Acknowledgements
 
