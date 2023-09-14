@@ -8,6 +8,16 @@ Firebase Used For Login Authorization and YouTube API to Get the Data To Display
 
 Hosted App Link: <https://yt-cl-2022.web.app>
 
+**NOTE:**
+
+- If your are Signing into the app and if its for the first time through your G-mail Id you might get an warning from google like this shown below:
+
+- ![Logo](https://i.stack.imgur.com/xROQ1.png)
+
+- But this is just a warning because the app might not be registered with google, as it is just a demonstration Project showing my project
+
+- All the API is provided by YouTube and Authentication is from Firebase, so I do not and will not read and also cannot access your data so please ignore this warning, Thank You.
+
 ## Acknowledgements
 
 - [YouTube API](https://developers.google.com/youtube/v3/docs)
@@ -32,7 +42,9 @@ To run this project, you will need to add the following environment variables to
 - Mobile Responsive
 - Search videos you want to watch
 - Get videos by categories
-- View Channel Videos
+- View Channel Screen and Videos
+- See Your Subscibed Channels
+- See Your Liked Videos
 
 ## Tech Stack
 

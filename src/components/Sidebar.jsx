@@ -39,19 +39,19 @@ const Sidebar = ({sidebar, handleToggle}) => {
         </li>
       </Link>
       
-      {/* <Link to='/feed/subscriptions' className='sidebar-link-navigate'> */}
+      <Link to='/feed/subscriptions' className='sidebar-link-navigate'>
         <li>
           <MdSubscriptions size={23}/>
           <span className={sidebar? "span-collapse": "navigate-span"}>Subscriptions</span>
         </li>
-      {/* </Link> */}
+      </Link>
       
-      {/* <Link to='/yourlikedvideos' className='sidebar-link-navigate'> */}
+      <Link to='/yourlikedvideos' className='sidebar-link-navigate'>
         <li>
           <MdThumbUp size={23}/>
           <span className={sidebar? "span-collapse": "navigate-span"}>Liked Videos</span>
         </li>
-      {/* </Link> */}
+      </Link>
 
       <li>
         <MdHistory size={23}/>

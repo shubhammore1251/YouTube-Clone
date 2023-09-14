@@ -13,7 +13,11 @@ export const login = () => async dispatch =>{
             type: LOGIN_REQ,
         })
 
-        const provider = new firebase.auth.GoogleAuthProvider()
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+
+        //when using Youtube API and want to See, edit, and permanently delete your YouTube videos, ratings, subscriptions , comments and captions then you need below "force-ssl" from youtube api
+        provider.addScope("https://www.googleapis.com/auth/youtube.force-ssl");
     
         const res = await auth.signInWithPopup(provider);
     

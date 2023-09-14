@@ -32,7 +32,7 @@ const Header = ({ handleToggle }) => {
   const handleLogin = () => {
     dispatch(login());
   };
-
+  
   return (
     <div className="header cursor">
       <div className="header-brand">

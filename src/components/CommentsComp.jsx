@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux'
-import { getCommentsOfVideoById } from '../redux/actions/comments.action';
+import { addComments, getCommentsOfVideoById } from '../redux/actions/comments.action';
 import Comment from './Comment'
 
 
@@ -28,16 +28,16 @@ const CommentsComp = ({videoId,totalComments,accessToken}) => {
     const  [text,setText] = useState(''); 
 
     //Handle Comment function to post a comment on a video using dispatch and redux-action
-    // const handleComment = (e)=>{
-    //     e.preventDefault();
+    const handleComment = (e)=>{
+        e.preventDefault();
 
-    //     if (text.length===0) return
+        if (text.length===0) return
 
-    //     dispatch(addComments(videoId,text))
+        dispatch(addComments(videoId,text))
 
-    //     setText('')
+        setText('')
         
-    // }
+    }
     
 
     return (
@@ -58,10 +58,10 @@ const CommentsComp = ({videoId,totalComments,accessToken}) => {
                 )
                 }
                 
-                <form className="d-flex flex-grow-1"> 
-                  <input type="text" className='flex-grow-1' placeholder='Add a comment...' value={text} onChange={(e)=> setText(e.target.value)} disabled={true}/>
+                <form onSubmit={handleComment} className="d-flex flex-grow-1"> 
+                  <input type="text" className='flex-grow-1' placeholder='Add a comment...' value={text} onChange={(e)=> setText(e.target.value)} disabled={accessToken === null}/>
                   
-                  <button className="border-0 p-2" disabled={true}>Comment</button>
+                  <button className="border-0 p-2" disabled={accessToken === null}>Comment</button>
                 </form>
 
             </div>

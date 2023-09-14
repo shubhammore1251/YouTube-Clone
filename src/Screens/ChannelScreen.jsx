@@ -5,9 +5,9 @@ import { getVideobyChannel } from '../redux/actions/video.actions';
 import { Container, Col, Row } from "react-bootstrap";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import VideoComp from '../components/VideoComp'
-import { getChannelDetailsId } from '../redux/actions/channel.actions';
+import { getChannelDetailsId, getSubscriptionStatus } from '../redux/actions/channel.actions';
 import numeral from 'numeral'
-// import { AiFillBell } from "react-icons/ai";
+import { AiFillBell } from "react-icons/ai";
 import HelmetCustom from '../components/HelmetCustom';
 
 const ChannelScreen = () => {
@@ -17,18 +17,27 @@ const ChannelScreen = () => {
 
     const dispatch = useDispatch();
 
-
+    const accessToken = useSelector(state => state.auth?.accessToken);
+    
     //Requesting the Videos of a Specific Channel,Channel Details,and Subscription Status
     useEffect(() => {
         dispatch(getVideobyChannel(channelId))
         dispatch(getChannelDetailsId(channelId))
-        // dispatch(getSubscriptionStatus(channelId))
-    }, [dispatch, channelId])
+        if (accessToken) {
+            dispatch(getSubscriptionStatus(channelId))
+        }
+    }, [dispatch, channelId, accessToken])
+
+    // useEffect(() => {
+    //     if (accessToken) {
+    //       dispatch(getSubscriptionStatus(channelId))
+    //     }
+    // }, [dispatch,accessToken,channelId])
 
 
     const { videos, loading } = useSelector(state => state.channelVideos)
     const {channel} = useSelector(state => state.channelDetail)
-    // const subsStatus = useSelector(state=>state.channelDetail.subsStatus);
+    const subsStatus = useSelector(state=>state.channelDetail.subsStatus);
 
     return (
         <>
@@ -46,16 +55,14 @@ const ChannelScreen = () => {
                     </div>
                 </div>
 
-                {/* {subsStatus? 
+                {subsStatus? 
                     <div className='button-group'> 
                         <button className="btn border-0 p-2 m-2" style={{backgroundColor: "rgba(255, 255, 255, 0.1)", color:"#aaa"}}>Subscribed</button>
                         <AiFillBell size={25} /> 
                     </div>
                 :
                    <button className="btn border-0 p-2 m-2">Subscribe</button>
-                }  */}
-
-                <button className="btn border-0 p-2 m-2">Subscribe</button>
+                }
             </div>
 
 

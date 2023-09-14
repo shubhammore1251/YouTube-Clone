@@ -15,6 +15,8 @@ const WatchScreen = () => {
 
     const dispatch = useDispatch();
 
+    const accessToken = useSelector(state => state.auth?.accessToken);
+
     const { video, loading } = useSelector(state => state.selectedVideo);
 
     //Requesting the Videos and Related Videos of Requested Video
@@ -29,9 +31,6 @@ const WatchScreen = () => {
 
     // eslint-disable-next-line no-unused-vars
     const { videos, loading: relatedVideoLoading } = useSelector((state) => state.searchedVideos);
-
-
-    const accessToken = useSelector(state => state.auth?.accessToken);
 
     return (
         <Row>

@@ -344,7 +344,7 @@
 
 
 /*Subscription-screen not-subscribed*/
-.notSubscribed{
+.nodata{
    display: flex;
    justify-content: center;
    align-items: center;
@@ -749,7 +749,7 @@
         }
     }
       
-    .notSubscribed{
+    .nodata{
         justify-content: flex-start;
         height: 71vh;
         &-icon{
